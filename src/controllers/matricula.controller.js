@@ -1,6 +1,5 @@
 import { pool } from "../database"
 const helpers=require('../libs/helpers');
-
 export const readAllmatricula=async(req,res)=>{
     try {
         const response=await pool.query('select * from matricula');
@@ -10,7 +9,6 @@ export const readAllmatricula=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const readmatricula=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -21,7 +19,6 @@ export const readmatricula=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const creatematricula=async(req,res)=>{
     try {
         const{username,password}=req.body;
@@ -32,7 +29,6 @@ export const creatematricula=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const updatematricula=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -44,7 +40,6 @@ export const updatematricula=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const delmatricula=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);

@@ -1,6 +1,5 @@
 import { pool } from "../database"
 const helpers=require('../libs/helpers');
-
 export const readAlldetalle=async(req,res)=>{
     try {
         const response=await pool.query('select * from detalle');
@@ -10,7 +9,6 @@ export const readAlldetalle=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const readdetalle=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -21,7 +19,6 @@ export const readdetalle=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const createdetalle=async(req,res)=>{
     try {
         const{creditos,horas,idcurso,idmatricula}=req.body;
@@ -32,7 +29,6 @@ export const createdetalle=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const updatedetalle=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -44,7 +40,6 @@ export const updatedetalle=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const deldetalle=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
