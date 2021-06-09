@@ -1,6 +1,5 @@
 import { pool } from "../database"
 const helpers=require('../libs/helpers');
-
 export const readAllUsers=async(req,res)=>{
     try {
         const response=await pool.query('select * from usuario');
@@ -10,7 +9,6 @@ export const readAllUsers=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const readUser=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -21,7 +19,6 @@ export const readUser=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const createUser=async(req,res)=>{
     try {
         const{username,password}=req.body;
@@ -33,7 +30,6 @@ export const createUser=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const updateUser=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
@@ -45,7 +41,6 @@ export const updateUser=async(req,res)=>{
         return res.status(500).json('Internal Server error...!')
     }
 }
-
 export const delUser=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
