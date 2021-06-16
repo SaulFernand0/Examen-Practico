@@ -21,9 +21,9 @@ export const readmatricula=async(req,res)=>{
 }
 export const creatematricula=async(req,res)=>{
     try {
-        const{username,password}=req.body;
-        await pool.query('insert into detalle(creditos,horas,idmatricula)values($1,$2)',[username,password2]);
-        return res.status(200).json(`Usuario ${username} creado correctamente`);
+        const{fecha,ciclo}=req.body;
+        await pool.query('insert into matricula(fecha,ciclo)values($1,$2)',[fecha,ciclo]);
+        return res.status(200).json(`Matricula generada correctamente`);
     } catch (e) {
         console.log(e);
         return res.status(500).json('Internal Server error...!')
@@ -32,9 +32,9 @@ export const creatematricula=async(req,res)=>{
 export const updatematricula=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
-        const{username,password}=req.body;
-        await pool.query('update usuario set username=$1,password=$2 where idusuario=$3',[username,password,id]);
-        return res.status(200).json(`Usuario ${id} modificado correctamente.....`);
+        const{fecha,ciclo}=req.body;
+        await pool.query('update matricula set fecha=$1,ciclo=$2 where idmatricula=$3',[fecha,ciclo,id]);
+        return res.status(200).json(`Matricula actualizada correctamente.....`);
     } catch (e) {
         console.log(e);
         return res.status(500).json('Internal Server error...!')
@@ -43,8 +43,8 @@ export const updatematricula=async(req,res)=>{
 export const delmatricula=async(req,res)=>{
     try {
         const id=parseInt(req.params.id);
-        const response=await pool.query('delete from usuario where idusuario=$1',[id]);
-        return res.status(200).json(`Usuario ${id} elimindo correctamente.....`);
+        const response=await pool.query('delete from matricula where idmatricula=$1',[id]);
+        return res.status(200).json(`Matricula elimindo correctamente...`);
     } catch (e) {
         console.log(e);
         return res.status(500).json('Internal Server error...!')
